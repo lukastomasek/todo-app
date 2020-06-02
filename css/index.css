@@ -1,0 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+ --noto-sans-font : font-family: 'Noto Sans', sans-serif; 
+ --poppins-font :font-family: 'Poppins', sans-serif;
+ --bg-col-1 :#d168ff;
+ --bg-col-2: #b850ff;
+
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-family: var(--poppins-font);
+    text-transform: capitalize;
+    text-align: center;
+}
+
+body{
+    background-image: linear-gradient(120deg,var(--bg-col-1), var(--bg-col-2));
+    color: white;
+    min-height: 100vh;
+    font-family: var(--poppins-font);
+}
+
+header,
+form{
+    padding-top: 5rem;
+    min-height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+form button,
+form input{
+padding: 1rem;
+border: none;
+background: white;
+}
+
+form button{
+    background:var(--bg-col-2);
+    color: white;
+    transition: all 0.25s ease-in-out;
+}
+
+form button :hover{
+    background-color: white;
+}
+
+form input{
+    outline: none;
+    border: none;
+    background: white;
+}
+
+select{
+    appearance: none;
+    border:none;
+    outline: none;
+
+}
+
+.select{
+    padding: 0.5rem;
+ 
+}
+
+select ::after{
+    content : "\25BC";
+}
+
+.todo-container{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.todo-list{
+    list-style: none;
+}
+
+.todo{
+    display: flex;
+    background: white;
+    color: black;
+    font-size: 1.5rem;
+    justify-content: space-between;
+}
