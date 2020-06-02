@@ -5,8 +5,8 @@
 :root{
  --noto-sans-font : font-family: 'Noto Sans', sans-serif; 
  --poppins-font :font-family: 'Poppins', sans-serif;
- --bg-col-1 :#d168ff;
- --bg-col-2: #b850ff;
+ --bg-col-1 :#FF7D95;
+ --bg-col-2: #FF8371;
 
 }
 
@@ -24,7 +24,7 @@ h1{
 }
 
 body{
-    background-image: linear-gradient(120deg,var(--bg-col-1), var(--bg-col-2));
+    background-image: linear-gradient(90deg,var(--bg-col-1), var(--bg-col-2));
     color: white;
     min-height: 100vh;
     font-family: var(--poppins-font);
@@ -43,23 +43,30 @@ form button,
 form input{
 padding: 1rem;
 border: none;
+outline: none;
 background: white;
+
 }
 
 form button{
-    background:var(--bg-col-2);
+    background:var(--bg-col-1);
     color: white;
     transition: all 0.25s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
-form button :hover{
-    background-color: white;
+
+button:hover{
+    background: white;
+    color: var(--bg-col-1);
+    
 }
 
 form input{
     outline: none;
     border: none;
     background: white;
+    width: 15rem;
 }
 
 select{
@@ -70,28 +77,23 @@ select{
 }
 
 .select{
-    padding: 0.5rem;
- 
+    padding: 1rem;
 }
 
-select ::after{
-    content : "\25BC";
-}
 
 .todo-container{
     display: flex;
-    align-self: center;
+    align-items: center;
     justify-content: center;
 }
 
-.todo-list{
+.todo-li{
     list-style: none;
 }
 
 .todo{
-    display: flex;
+    min-width: 30%;
     background: white;
-    color: black;
     font-size: 1.5rem;
-    justify-content: space-between;
+
 }
