@@ -3,17 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root{
- --noto-sans-font : font-family: 'Noto Sans', sans-serif; 
- --poppins-font :font-family: 'Poppins', sans-serif;
- --bg-col-1 :#FF7D95;
- --bg-col-2: #FF8371;
+    --noto-sans-font : font-family: 'Noto Sans', sans-serif; 
+    --poppins-font :font-family: 'Poppins', sans-serif;
+    --bg-col-1 :#FF7D95;
+    --bg-col-2: #FF8371;
 
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 h1{
@@ -41,10 +41,10 @@ form{
 
 form button,
 form input{
-padding: 1rem;
-border: none;
-outline: none;
-background: white;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    background: white;
 
 }
 
@@ -53,6 +53,7 @@ form button{
     color: white;
     transition: all 0.25s ease-in-out;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 
@@ -73,27 +74,79 @@ select{
     appearance: none;
     border:none;
     outline: none;
-
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    width: 10rem;
+    padding: 1rem;
+ 
 }
 
 .select{
     padding: 1rem;
+
 }
 
+select{
+    color: var(--bg-col-2);
+    font-family: var(--noto-sans-font); 
+    font-weight: bolder;
+   
+}
 
+select ::after{
+    content: "\25BC";
+}
 .todo-container{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-.todo-li{
+.todo-list{
+    margin-top: 2rem;
+    margin-left: -10rem;
     list-style: none;
+    min-width: 30%;
 }
 
 .todo{
-    min-width: 30%;
+    margin: 1rem;
     background: white;
-    font-size: 1.5rem;
+    color: black;
+    font-family: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.todo li{
+    flex: 1;
+}
+
+.todo-item{
+    margin: .7rem 1rem;
+}
+
+.trash-btn ,
+.complete-btn{
+    background: var(--bg-col-1);
+    color: white;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.complete-btn{
+    background: #4FE656;
+}
+
+.trash-btn{
+    background: #DB4233;
+}
+
+.completed{
+    text-decoration: line-through;
+    opacity: 0.5;
 }
