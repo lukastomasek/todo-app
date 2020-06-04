@@ -94,6 +94,14 @@ select{
    
 }
 
+option{
+    appearance: none;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
 select ::after{
     content: "\25BC";
 }
