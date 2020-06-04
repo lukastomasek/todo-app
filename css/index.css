@@ -41,7 +41,8 @@ form{
 
 form button,
 form input{
-    padding: 1rem;
+    padding: 2rem;
+    padding-left: 2rem;
     border: none;
     outline: none;
     background: white;
@@ -62,6 +63,8 @@ button:hover{
     color: var(--bg-col-1);
     
 }
+
+
 
 form input{
     outline: none;
@@ -149,7 +152,10 @@ select ::after{
 .complete-btn{
     background: #4FE656;
 }
-
+.complete-btn :hover{
+    background: white;
+    color:  #4FE656;
+}
 .trash-btn{
     background: #DB4233;
 }
@@ -157,4 +163,25 @@ select ::after{
 .completed{
     text-decoration: line-through;
     opacity: 0.5;
+}
+
+.effect{
+    transition: all .4s ease;
+    transform: translateY(10rem) rotateY(30deg);
+    animation-name: effectAnim;
+    animation-duration: 2s;
+    
+}
+
+
+@keyframes effectAnim{
+   100%{
+    opacity: 90%;
+   }
+   50%{
+    opacity: 30%;
+   }
+   0%{
+    opacity: 0%;
+   }
 }

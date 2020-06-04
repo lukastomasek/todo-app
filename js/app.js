@@ -1,4 +1,4 @@
-//TODO : create content in html, stylize the todo , add functionality , save to local files
+//TODO : design logo
 
 let $todoInput = document.querySelector(".add-todo");
 let $todoBtn = document.querySelector(".todo-btn");
@@ -40,7 +40,13 @@ function deleteAndCheck(event) {
 
   if (target.classList[0] === "trash-btn") {
     let todo = target.parentElement;
-    todo.remove();
+
+    removeFromLocalStorage(todo);
+    todo.classList.add("effect");
+    // after we finish animating then remove the object
+    todo.addEventListener("transitionend", function () {
+      todo.remove();
+    });
   }
 
   if (target.classList[0] === "complete-btn") {
@@ -136,10 +142,11 @@ function removeFromLocalStorage(todo) {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
 
+  // find the index of todo
   let todoIndex = todo.children[0].innerText;
-
+  // get the index out of array and remove it
   todos.splice(todos.indexOf(todoIndex), 1);
-
+  //save the file again
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
