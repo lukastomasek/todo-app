@@ -7,7 +7,6 @@
     --poppins-font :font-family: 'Poppins', sans-serif;
     --bg-col-1 :#FF7D95;
     --bg-col-2: #FF8371;
-
 }
 
 * {
@@ -17,7 +16,7 @@
 }
 
 h1{
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-family: var(--poppins-font);
     text-transform: capitalize;
     text-align: center;
@@ -60,11 +59,8 @@ form button{
 
 button:hover{
     background: white;
-    color: var(--bg-col-1);
-    
+    color: var(--bg-col-1);   
 }
-
-
 
 form input{
     outline: none;
@@ -93,8 +89,7 @@ select{
 select{
     color: var(--bg-col-2);
     font-family: var(--noto-sans-font); 
-    font-weight: bolder;
-   
+    font-weight: bolder; 
 }
 
 option{
@@ -105,9 +100,11 @@ option{
     -moz-appearance: none;
     cursor: pointer;
 }
+
 select ::after{
     content: "\25BC";
 }
+
 .todo-container{
     display: flex;
     justify-content: center;
@@ -184,4 +181,35 @@ select ::after{
    0%{
     opacity: 0%;
    }
+}
+
+@media only screen and (max-width: 768px) {
+
+ h1{
+  font-size: 2.5rem;
+ }
+ .todo-list{
+    margin-top: 2rem;
+    margin-left: -10rem;
+    list-style: none;
+    min-width: 50%;
+}
+
+form input{
+    width: 10rem;
+    height: 2rem;
+}
+
+form button{
+    height: 2rem;
+}
+
+select{
+    padding: 0.5rem;
+}
+
+.select{
+    padding-top : 0.1rem;
+}
+
 }

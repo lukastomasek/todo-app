@@ -1,4 +1,4 @@
-//TODO : design logo
+//TODO : create icon
 
 let $todoInput = document.querySelector(".add-todo");
 let $todoBtn = document.querySelector(".todo-btn");
