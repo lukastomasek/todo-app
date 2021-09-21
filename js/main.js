@@ -1,6 +1,15 @@
+import DateFormat from './modules/DateFormatter.js'
+
 const addTodo = document.querySelector('.add-todo-btn')
 const txtInput = document.querySelector('.todo-inp')
 const todosSection = document.querySelector('.todos')
+const showDate = document.querySelector('.show-date')
+
+
+const dt = new DateFormat()
+
+
+const GetDateNow = () =>  showDate.textContent = dt.getFormattedDate()
 
 const createToDo = () =>{
   let todoParent = document.createElement('div')
@@ -10,7 +19,7 @@ const createToDo = () =>{
   let removeBtn = document.createElement('button')
   removeBtn.setAttribute('class', 'remove-btn')
   removeBtn.innerText = 'remove'
-  
+
   removeBtn.addEventListener('click', ()=>{
     console.log(`removing todo: ${todoParent}`)
     todoParent.remove()
@@ -33,3 +42,5 @@ const loadTodos = () =>{
 }
 
 addTodo.addEventListener('click',createToDo)
+
+GetDateNow()
