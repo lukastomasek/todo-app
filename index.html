@@ -5,9 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO APP</title>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/style.css">
   <script type="module"src="js/main.js"></script>
   <script type="module"src="js/module/date.js"></script>
+  <script type="module" src="js/classes/Utilities.js"></script>
 </head>
 <body>
   <header>
@@ -15,6 +16,13 @@
     <p class="show-date"></p>
   </header>
   <main>
+    <section class="filter">
+      <select class="filter-select">
+        <option value="ALL">all</option>
+        <option value="COMPLETED">completed</option>
+        <option value="PENDING">pending</option>
+      </select>
+    </section>
     <div>
       <button class="add-todo-btn">add</button>
       <form>
@@ -26,7 +34,7 @@
       </form>
     </div>
     <section class="todos">
-     
+     <ul class="todo-container"></ul>
     </section>
   </main>
 </body>
