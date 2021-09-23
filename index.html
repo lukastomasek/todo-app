@@ -6,9 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO APP</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script type="module"src="js/main.js"></script>
   <script type="module"src="js/module/date.js"></script>
   <script type="module" src="js/classes/Utilities.js"></script>
+  <script src="https://kit.fontawesome.com/050ec1b76b.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -16,26 +20,22 @@
     <p class="show-date"></p>
   </header>
   <main>
-    <section class="filter">
-      <select class="filter-select">
-        <option value="ALL">all</option>
-        <option value="COMPLETED">completed</option>
-        <option value="PENDING">pending</option>
-      </select>
+    <section class="header">
+    
     </section>
-    <div>
-      <button class="add-todo-btn">add</button>
-      <form>
-        <input
-        class="todo-inp" 
-        type="text"
-        placeholder="add task"
-        >
-      </form>
+    <section>
+      <ul class="todo-list">
+        <!-- <li class="todo-item">
+          <i class="far fa-circle"></i>
+          <p class="text">Drink Coffee!</p>
+          <i class="fas fa-trash" job="delete"></i>
+        </li> -->
+      </ul>
+    </section>
+    <div class="add-item">
+      <i class="fas fa-plus"></i>
+      <input type="text" class="add-todo" placeholder="Add Todo">
     </div>
-    <section class="todos">
-     <ul class="todo-container"></ul>
-    </section>
   </main>
 </body>
 </html>

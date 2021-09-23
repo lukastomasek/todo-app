@@ -1,157 +1,62 @@
 import DateFormat from './modules/DateFormatter.js'
 import Utilities from './classes/Utilities.js'
 
-const addTodo = document.querySelector('.add-todo-btn')
-const txtInput = document.querySelector('.todo-inp')
-const todosSection = document.querySelector('.todo-container')
-const showDate = document.querySelector('.show-date')
-const filter = document.querySelector('.filter-select')
-
-
 const dt = new DateFormat()
 const utils = new Utilities()
 
-let todos
 
-let allTodos = []
+const clear = document.querySelector('.clear')
+const dateElement = document.querySelector('date')
 
-const GetDateNow = () =>  showDate.textContent = dt.getFormattedDate()
+const todoList = document.querySelector('.todo-list')
+const input = document.querySelector('.add-todo')
 
-const createToDo = () =>{
+const position = 'beforeend'
 
-  if(txtInput.value === ''){
-    alert("Todo is empty!")
+let LIST = []
+let id = 0
+
+const checked = "far fa-check-circle"
+const unChecked = "far fa-circle"
+const lineThrough = "line-through"
+
+
+function addTodo(toDo,id,done,trasj){
+
+  if(trash){
     return
   }
+  const DONE = done ? checked : unChecked
+  const LINE = done ? lineThrough : ""
 
-  let todoParent = document.createElement('li')
-  todoParent.setAttribute('class', 'todo')
-  let todoTxt = document.createElement('div')
-  todoTxt.setAttribute('class', 'todo-text')
-  let removeBtn = document.createElement('button')
-
-  let completeBtn = document.createElement('button')
-  completeBtn.setAttribute('class', 'complete')
-  completeBtn.innerText = 'Complete'
-
-  removeBtn.setAttribute('class', 'remove-btn')
-  removeBtn.innerText = 'remove'
-
-  removeBtn.addEventListener('click', ()=>{
-    todoParent.remove()
-  })
-
-  completeBtn.addEventListener('click', ()=>{
-    todoTxt.classList.toggle('completed')
-    console.log('completed')
-  })
-
-  // saving todo
-  saveTodos(txtInput.value)
-
-  todoTxt.innerText = txtInput.value
-  txtInput.value = ''
-  todosSection.appendChild(todoParent)
-  todoParent.appendChild(todoTxt)
-  todoParent.appendChild(removeBtn)
-  todoParent.appendChild(completeBtn)
-
-  allTodos.push(todoTxt)
+  const text = `
+    <li class="todo-item">
+      <i class="far ${DONE}" job="complete" id="${id}"></i>
+      <p class="text ${LINE}">${toDo}</p>
+      <i class="fas fa-trash" job="delete" id="${id}"></i>
+    </li>
+  `
+  const htmlObj  =  document.createElement('li')
+  htmlObj.innerHTML = text
+  todoList.insertAdjacentElement(position,htmlObj)
 }
 
 
-const saveTodos = (todo) =>{
-  // let todos
-  if(localStorage.getItem('todos') === null){
-    todos = []
-  }else{
-    todos = JSON.parse(localStorage.getItem('todos'))
-  }
-  todos.push(todo)
-  localStorage.setItem('todos', JSON.stringify(todos))
-  localStorage.setItem('all', allTodos)
+function completeTodo(element){
+  element.classList.toggle(checked)
+  element.classList.toggle(unChecked)
 }
 
-const loadTodos = () =>{
-  // let todos
-  if(localStorage.getItem('todos') === null){
-    todos = []
-  }else{
-    todos = JSON.parse(localStorage.getItem('todos'))
-    
-  }
+document.addEventListener('keyup',(e)=>{
+  // if key is enter
+  if(e.keyCode === 13){
+    const todo = input.value
+    console.log('adding todo')
+    if(todo){
+      addTodo(todo)
 
-  allTodos = localStorage.getItem('all')
-  console.log(allTodos)
-
-  todos.forEach(function(todo){
-    let todoParent = document.createElement('li')
-    todoParent.setAttribute('class', 'todo')
-    let newTodo = document.createElement('div')
-    newTodo.setAttribute('class', 'todo-text')
-    newTodo.innerText = todo
-
-    // complete btn
-    let completeBtn = document.createElement('button')
-    completeBtn.setAttribute('class', 'complete')
-    completeBtn.innerText = 'Complete'
-
-    // remove btn
-    let removeBtn = document.createElement('button')
-    removeBtn.setAttribute('class', 'remove-btn')
-    removeBtn.innerText = 'remove'
-
-    todosSection.appendChild(todoParent)
-    todoParent.appendChild(newTodo)
-    todoParent.appendChild(removeBtn)
-    todoParent.appendChild(completeBtn)
-
-
-    removeBtn.addEventListener('click', ()=>{
-      todos.splice(todos.indexOf(0),1)
-      todoParent.remove()
-      localStorage.setItem('todos', JSON.stringify(todos))
-    })
-
-    completeBtn.addEventListener('click', ()=>{
-      console.log('completed')
-      newTodo.classList.toggle('completed')
-    })
-
-    allTodos.push(newTodo)
-  })
-
-  }
-
-  const filterTodos = (e) =>{
-    e.preventDefault()
-
-    if(todos.length == 0)
-      return
-
-    const val = e.target.value
-    console.log(val)
-
-    if(val === "ALL"){
-      allTodos.forEach((todo)=>{     
-      todo.parentElement.classList.remove('display-none')   
-      }) 
-    }else if(val === "COMPLETED"){
-      allTodos.forEach((todo)=>{
-        if(!todo.classList.contains('completed')){
-          todo.parentElement.classList.toggle('display-none')
-        }
-      })
-    }else if(val === "PENDING"){
-      console.log('pending todos')
+      input.value = ""
     }
-}
 
-
-filter.addEventListener('change', filterTodos)
-
-// utils.clearLocalStorage()
-
-addTodo.addEventListener('click',createToDo)
-loadTodos('todo')
-GetDateNow()
+  }
+})

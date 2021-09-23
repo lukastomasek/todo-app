@@ -7,10 +7,51 @@
   box-sizing: border-box;
 }
 
-.completed{
-  color: green;
-  text-decoration: line-through;
+body{
+  font-family: $secondary-font;
 }
-.display-none{
-  display: none;
+
+.todo-list{
+  list-style: none;
+  display:  grid;
+  grid-gap: 1em;
+  justify-content: center;
+  .todo-item{
+    height: 50px;
+    width: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    background-color: $secondary-color;
+    
+    p{
+      text-align: center;
+      text-transform: capitalize;
+      margin: 0 10px;
+    }
+    i:hover{
+      cursor: pointer;
+      transform: scale(95%);
+    }
+  }
+}
+
+.add-item{
+  position: fixed;
+  bottom: 0;
+  height: 100px;
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 40%;
+  background-color: white;
+  border-top: 5px solid gray;
+  input{
+    text-align: center;
+    border-style: none;
+    margin: 0 10px;
+    font-size: 1.5rem;
+  }
 }
