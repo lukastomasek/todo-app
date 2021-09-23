@@ -9,6 +9,23 @@
 
 body{
   font-family: $secondary-font;
+  background-color: $bg-col;
+  color:white;
+}
+
+.header{
+ 
+  .clear{
+    position: absolute;
+    right: 20px;
+
+    &:hover{
+      cursor: pointer;
+    }
+  
+  }
+
+  
 }
 
 .todo-list{
@@ -17,8 +34,8 @@ body{
   grid-gap: 1em;
   justify-content: center;
   .todo-item{
-    height: 50px;
-    width: 180px;
+    height: 70px;
+    width: 350px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -38,20 +55,25 @@ body{
 }
 
 .add-item{
-  position: fixed;
+  position: absolute;
   bottom: 0;
   height: 100px;
+  width: 100%;
   display: flex;
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin: 0 40%;
-  background-color: white;
-  border-top: 5px solid gray;
+  background-color: $secondary-color;
+  // border-top: 5px solid gray;
   input{
+    background-color: $secondary-color;
     text-align: center;
     border-style: none;
-    margin: 0 10px;
     font-size: 1.5rem;
+    color:white;
+
+    &:focus{
+      outline:none;
+    }
   }
+
 }

@@ -6,7 +6,7 @@ const utils = new Utilities()
 
 
 const clear = document.querySelector('.clear')
-const dateElement = document.querySelector('date')
+const dateElement = document.getElementById('date')
 
 const todoList = document.querySelector('.todo-list')
 const input = document.querySelector('.add-todo')
@@ -45,7 +45,40 @@ function addTodo(toDo,id,done,trasj){
 function completeTodo(element){
   element.classList.toggle(checked)
   element.classList.toggle(unChecked)
+  //select parent element {li} and toggle class linethrough
+  element.parentNode.querySelector('.text').classList.toggle(lineThrough)
 }
+
+function removeTodo(element){
+  element.parentNode.parentNode.removeChild(element.parentNode)
+  LIST[element.id].trash = true
+}
+
+
+function loadTodo(array){
+  array.foreach(function(item){
+    addTodo(item.name, item.id, item.done,item.trash)
+  })
+}
+
+// clearing storage
+clear.addEventListener('click',()=> utils.clearLocalStorage())
+
+dateElement.innerHTML = dt.getFormattedDate()
+
+todoList.addEventListener("click", (event) =>{
+  let element = event.target
+
+  //check the custom attribute value which will return delete or complete
+  const elementJob = event.target.attributes.job.value
+
+  if(elementJob === 'complete'){
+    completeTodo(element)
+  }else if( elementJob === 'delete'){
+    removeTodo(element)
+  }
+
+})
 
 document.addEventListener('keyup',(e)=>{
   // if key is enter
