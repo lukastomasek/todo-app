@@ -1,0 +1,18 @@
+%base-todo{
+  height: 70px;
+  width: 350px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  background-color: $complete-color;   
+  p{
+    text-align: center;
+    text-transform: capitalize;
+    margin: 0 10px;
+  }
+  i:hover{
+    cursor: pointer;
+    transform: scale(95%);
+  }
+}

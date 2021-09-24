@@ -1,18 +1,6 @@
 @import 'config';
 @import 'utilities';
-
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body{
-  font-family: $secondary-font;
-  background-color: $bg-col;
-  color:white;
-  min-height: 100vh;
-}
+@import 'shared';
 
 .header{
   background-color: $primary-color;
@@ -42,7 +30,6 @@ body{
   
   } 
 }
-
 .todo-list{
   list-style: none;
   display: grid;
@@ -50,42 +37,15 @@ body{
   justify-content: center;
   align-items: center;
   margin-bottom: 20rem;
+
   .complete-item{
-    height: 70px;
-    width: 350px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 10px;
-    background-color: $complete-color;   
-    p{
-      text-align: center;
-      text-transform: capitalize;
-      margin: 0 10px;
-    }
-    i:hover{
-      cursor: pointer;
-      transform: scale(95%);
-    }
+   @extend %base-todo;
+   background-color: $complete-color
   }
   
   .todo-item{
-    height: 70px;
-    width: 350px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 10px;
-    background-color: $secondary-color;   
-    p{
-      text-align: center;
-      text-transform: capitalize;
-      margin: 0 10px;
-    }
-    i:hover{
-      cursor: pointer;
-      transform: scale(95%);
-    }
+   @extend %base-todo;
+   background-color: $primary-color;
   }
 }
 

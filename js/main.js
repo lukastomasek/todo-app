@@ -1,6 +1,7 @@
-import DateFormat from './modules/DateFormatter.js'
+import DateFormat from './classes/DateFormatter.js'
 import Utilities from './classes/Utilities.js'
 
+//#region SETUP
 const dt = new DateFormat()
 const utils = new Utilities()
 
@@ -20,7 +21,10 @@ const unComplete = "todo-item"
 
 
 let list,id
+//#endregion
 
+
+//#region  SAVING & LOADING
 // get item from local storage
 let data = localStorage.getItem('TODO')
 //check if data is not empty
@@ -33,13 +37,13 @@ if(data){
   id = 0
 }
 
-
 function loadList(array){
   array.forEach(function(item){
     addTodo(item.name, item.id, item.done,item.trash)
   })
 }
 
+//#endregion
 
 function addTodo(toDo,id,done,trash){
   if(trash){
@@ -85,13 +89,6 @@ function removeTodo(element){
   list[element.id].trash = true
 }
 
-
-function loadTodo(array){
-  array.foreach(function(item){
-    addTodo(item.name, item.id, item.done,item.trash)
-  })
-}
-
 // clearing storage
 clear.addEventListener('click',()=>{
   const icon =  clear.children[0]
@@ -127,6 +124,7 @@ document.addEventListener('keyup',(e)=>{
     if(todo){
       addTodo(todo,id,false,false)
 
+      // push new todos in to the list
       list.push({
         name:todo,
         id: id,
@@ -136,6 +134,7 @@ document.addEventListener('keyup',(e)=>{
       //add item to local storage
       localStorage.setItem('TODO',JSON.stringify(list))
 
+      // increase id
       id++
 
     }
